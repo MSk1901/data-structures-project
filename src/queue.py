@@ -16,7 +16,9 @@ class Queue:
 
     def __init__(self):
         """Конструктор класса Queue"""
-        pass
+        self.head = None
+        self.tail = None
+        self.all = []
 
     def enqueue(self, data):
         """
@@ -24,7 +26,14 @@ class Queue:
 
         :param data: данные, которые будут добавлены в очередь
         """
-        pass
+        obj = Node(data, None)
+        self.all.append(data)
+        if not self.head:
+            self.head = obj
+            self.tail = self.head
+        else:
+            self.tail.next_node = obj
+            self.tail = obj
 
     def dequeue(self):
         """
@@ -36,4 +45,4 @@ class Queue:
 
     def __str__(self):
         """Магический метод для строкового представления объекта"""
-        pass
+        return "\n".join(self.all)
