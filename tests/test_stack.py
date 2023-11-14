@@ -23,6 +23,12 @@ def test_stack_init(stack):
     assert stack.top is None
 
 
+def test_stack_str(stack):
+    stack.push('data1')
+    stack.push('data2')
+    assert str(stack) == "data2"
+
+
 def test_stack_push(stack):
     stack.push('data1')
     stack.push('data2')
