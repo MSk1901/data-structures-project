@@ -29,3 +29,15 @@ def test_stack_push(stack):
     stack.push('data3')
     assert stack.top.data == "data3"
     assert stack.top.next_node.data == "data2"
+
+
+def test_stack_pop_not_empty(stack):
+    stack.push('data1')
+    stack.push('data2')
+    stack.pop()
+
+    assert stack.top.data == 'data1'
+
+
+def test_stack_pop_empty(stack):
+    assert stack.pop() is None
