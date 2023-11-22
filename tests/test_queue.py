@@ -34,3 +34,12 @@ def test_queue_enqueue(ex_queue):
     assert ex_queue.head.next_node.data == 'data2'
     assert ex_queue.tail.data == 'data3'
     assert ex_queue.tail.next_node is None
+
+
+def test_queue_dequeue(ex_queue):
+    ex_queue.enqueue('data1')
+    ex_queue.enqueue('data2')
+
+    assert ex_queue.dequeue() == "data1"
+    assert ex_queue.dequeue() == "data2"
+    assert ex_queue.dequeue() is None
