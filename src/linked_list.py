@@ -18,7 +18,8 @@ class LinkedList:
         self.head = None
 
     def insert_beginning(self, data: dict) -> None:
-        """Принимает данные (словарь) и добавляет узел с этими данными в начало связанного списка"""
+        """Принимает данные (словарь)
+        и добавляет узел с этими данными в начало связанного списка"""
 
         new_node = Node(data, None)
         if not self.head:
@@ -28,7 +29,8 @@ class LinkedList:
             self.head = new_node
 
     def insert_at_end(self, data: dict) -> None:
-        """Принимает данные (словарь) и добавляет узел с этими данными в конец связанного списка"""
+        """Принимает данные (словарь)
+        и добавляет узел с этими данными в конец связанного списка"""
         new_node = Node(data, None)
         current = self.head
         if not self.head:
@@ -51,3 +53,23 @@ class LinkedList:
 
         ll_string += 'None'
         return ll_string
+
+    def to_list(self):
+        """Возвращает список с данными,
+        содержащимися в односвязном списке LinkedList"""
+        current = self.head
+        data_list = []
+        while current:
+            data_list.append(current.data)
+            current = current.next_node
+        return data_list
+
+    def get_data_by_id(self, value):
+        """Возвращает первый найденный в LinkedList словарь с ключом 'id',
+        значение которого равно переданному в метод значению."""
+        for data in self.to_list():
+            try:
+                if data["id"] == value:
+                    return data
+            except (TypeError, AttributeError):
+                print("Данные не являются словарем или в словаре нет id.")
